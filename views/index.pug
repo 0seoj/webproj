@@ -23,7 +23,9 @@ block content
         li.nav-item
           a.nav-link(href='/signin') SIGN IN
         li.nav-item
-          a.nav-link(href='#') CREATE EVENT  
+          a.nav-link(href='/users/new') SIGN UP
+        li.nav-item
+          a.nav-link(href='/events/new') CREATE EVENT  
     .container-fluid.body
       div
         .row.title
@@ -126,7 +128,7 @@ block content
           .col-md-4.col-sm-6
             .card
               a(href='#')
-                img.card-img-top(src='./img6.jpg', alt='img')
+                img.card-img-top(src='./images/img2-4.jpg', alt='img')
                 .card-body
                   .card-text
                     .day Sat OCT 14 9:15 AM
@@ -141,14 +143,14 @@ block content
           .col-md-4.col-sm-6
             .card
               a(href='#')
-                img.card-img-top(src='./img7.jpg', alt='img')
+                img.card-img-top(src='./images/img2-5.jpg', alt='img')
                 .card-body
                   .card-text
                     .day Sun, OCT 22 4:45 PM
                     .title
                       | Haebangchon Food Crawl 해방촌 푸드투어
                     .place
-                      | Noksapyeong Station exit2 Yongsan 2(i)ga-dong
+                      | Lyso Black Box
               .card-footer
                 a.tag(href='#') #Hobbies
                 a.tag(href='#') #Party
@@ -157,7 +159,7 @@ block content
           .col-md-4.col-sm-6
             .card
               a(href='#')
-                img.card-img-top(src='./img8.jpg', alt='img')
+                img.card-img-top(src='./images/img2-6.jpg', alt='img')
                 .card-body
                   .card-text
                     .day Fri 3 November 6:00 PM
@@ -172,7 +174,7 @@ block content
           .col-md-4.col-sm-6
             .card
               a(href='#')
-                img.card-img-top(src='./img17.jpg', alt='img')
+                img.card-img-top(src='./images/img2-7.jpg', alt='img')
                 .card-body
                   .card-text
                     .day Thu, OCT 12 10:00 AM
@@ -188,7 +190,7 @@ block content
           .col-md-4.col-sm-6
             .card
               a(href='#')
-                img.card-img-top(src='./img18.jpg', alt='img')
+                img.card-img-top(src='./images/img2-8.jpg', alt='img')
                 .card-body
                   .card-text
                     .day Fri, OCT 13, 10:00 AM
@@ -204,7 +206,7 @@ block content
           .col-md-4.col-sm-6
             .card
               a(href='#')
-                img.card-img-top(src='./img19.jpg', alt='img')
+                img.card-img-top(src='./images/img2-9.jpg', alt='img')
                 .card-body
                   .card-text
                     .day Thu, November 9 6:00 PM
@@ -220,7 +222,7 @@ block content
           .col-md-4.col-sm-6
             .card
               a(href='#')
-                img.card-img-top(src='./img20.jpg', alt='img')
+                img.card-img-top(src='./images/img2-10.jpg', alt='img')
                 .card-body
                   .card-text
                     .day Fri, Oct 13, 7:00 PM
@@ -236,7 +238,7 @@ block content
           .col-md-4.col-sm-6
             .card
               a(href='#')
-                img.card-img-top(src='./img21.jpg', alt='img')
+                img.card-img-top(src='./images/img2-11.jpg', alt='img')
                 .card-body
                   .card-text
                     .day Thu, Nov 9, 2017, 9:00 AM
@@ -252,7 +254,7 @@ block content
           .col-md-4.col-sm-6
             .card
               a(href='#')
-                img.card-img-top(src='./img22.jpg', alt='img')
+                img.card-img-top(src='./images/img2-12.jpg', alt='img')
                 .card-body
                   .card-text
                     .day Tue, Nov 7, 2017, 3:00 PM
@@ -276,47 +278,181 @@ block content
         .row
           .col
             h5.browse Browse by Top Categories
-        .row.browse-menu
-          .long-card-col
-            a(href='#')
-              .card.img-browse-card.text-white.browse-card.long-card
-                img.card-img(src='./img/img_category_music.jpg', alt='music')
+          .row
+            .col-md-8.col-sm-12
+              .card.bg-dark.text-white
+                img.card-img(src='./images/img3-1.jpg', alt='Card image')
                 .card-img-overlay
-                  h5.card-title.browse-title.text-center Music
-                  h6.card-small Intimate house concerts, major music festivals, and the occasional dance party
-          .card-col
-            a(href='#')
-              .card.img-browse-card.text-white.browse-card
-                img.card-img(src='./img/img_category_food.jpg', alt='food')
+                  h4.card-title Music
+                  p.card-text
+                    | Intimate house conserts, major music festivals, and the occasional dance party  
+            .col-md-4.col-sm-12
+              .card.bg-dark.text-white
+                img.card-img(src='./images/img3-2.jpg', alt='Card image')
                 .card-img-overlay
-                  h5.card-title.browse-title.text-center Food & Drink
-          .card-col
-            a(href='#')
-              .card.img-browse-card.text-white.browse-card
-                img.card-img(src='./img/img_category_classes.jpg', alt='classes')
+                  h4.card-title Food & Drink
+                  p.card-text
+                    | Dinner parties, tastings, and big-time festivals
+
+            .col-md-4.col-sm-12
+              .card.bg-dark.text-white
+                img.card-img(src='./images/img3-3.jpg', alt='Card image')
                 .card-img-overlay
-                  h5.card-title.browse-title.text-center Classes
-          .card-col
-            a(href='#')
-              .card.img-browse-card.text-white.browse-card
-                img.card-img(src='./img/img_category_arts.jpg', alt='arts')
+                  h4.card-title Classes
+                  p.card-text
+                    |Enlightening seminars, technical workshops, and fitness classes    
+            .col-md-4.col-sm-12
+              .card.bg-dark.text-white
+                img.card-img(src='./images/img3-4.jpg', alt='Card image')
                 .card-img-overlay
-                  h5.card-title.browse-title.text-center Arts
-          .card-col
-            a(href='#')
-              .card.img-browse-card.text-white.browse-card
-                img.card-img(src='./img/img_category_parties.jpg', alt='parties')
+                  h4.card-title Arts
+                  p.card-text
+                    | Plays, comedy nights, art exhibitions and film festivals    
+            .col-md-4.col-sm-12
+              .card.bg-dark.text-white
+                img.card-img(src='./images/img3-5.jpg', alt='Card image')
                 .card-img-overlay
-                  h5.card-title.browse-title.text-center Parties
-          .card-col
-            a(href='#')
-              .card.img-browse-card.text-white.sports.browse-card
-                img.card-img(src='./img/img_category_sports.jpg', alt='sports')
+                  h4.card-title Parties
+                  p.card-text
+                    | Casual happy hours, singles nights, and all-night celebrations
+            .col-md-4.col-sm-12
+              .card.bg-dark.text-white
+                img.card-img(src='./images/img3-6.jpg', alt='Card image')
                 .card-img-overlay
-                  h5.card-title.browse-title.text-center Sports & Wells
-          .long-card-col
-            a(href='#')
-              .card.img-browse-card.text-white.browse-card.long-card
-                img.card-img(src='./img/img_category_networking.jpg', alt='networking')
+                  h4.card-title Sports & Welness
+                  p.card-text
+                    |Obstacle races, drop-in yoga classes, and the big game            
+            .col-md-8.col-sm-12
+              .card.bg-dark.text-white
+                img.card-img(src='./images/img3-7.jpg', alt='Card image')
                 .card-img-overlay
-                  h5.card-title.browse-title.text-center Networking
+                  h4.card-title NetWorking
+                  p.card-text
+                    | Intimate house conserts, major music festivals, and the occasional dance party            
+    .container-footer
+      .row
+        .col-md-3.col-sm-12
+          ul
+            li
+              h3 Use Eventbrite
+            li
+              a(href='https://www.eventbrite.com/how-it-works/') How It Works
+            li
+              a(href='https://www.eventbrite.com/blog/overview/?ref=ebfooter') For Large & Complex Events
+            li
+              a(href='https://www.eventbrite.com/fees/') Pricing
+            li
+              a(href='https://www.eventbrite.com/support/articleredirect?anum=26182') Community Guidelines
+            li
+              a(href='https://www.eventbrite.com/eventbriteapp/') Eventbrite Mobile App
+            li
+              a(href='https://www.eventbrite.com/l/Organizer-check-in-app/') Eventbrite Check-In App
+            li
+              a(href='https://www.eventbrite.com/spectrum/') Eventbrite Spectrum
+            li
+              a(href='https://www.eventbrite.com/rally/') Rally - Fun Things To Do
+            li
+              a(href='https://www.eventbrite.com/blog/academy/') Event Organizing Resources
+            li
+              a(href='https://www.eventbrite.com/sitemap/') Sitemap
+        .col-md-3.col-sm-12
+          ul
+            li
+              h3 Plan Events
+            li
+              a(href='https://www.eventbrite.com/l/conferences/') Conference Management Software
+            li
+              a(href='https://www.eventbrite.com/l/reunions/') Reunions
+            li
+              a(href='https://www.eventbrite.com/l/npo/') Nonprofits & Fundraisers
+            li
+              a(href='https://www.eventbrite.com/l/reviews/') Eventbrite Reviews
+            li
+              a(href='https://www.eventbrite.com/l/sell-tickets/') Sell Tickets
+            li
+              a(href='https://www.eventbrite.com/l/event-management-software/') Event Management & Planning
+            li
+              a(href='https://www.eventbrite.com/l/registration-online/') Online Event Registration
+            li
+              a(href='https://www.eventbrite.com/l/online-rsvp/') Online RSVP
+            li
+              a(href='https://www.eventbrite.com/l/music-venues/') Venue Booking & Management
+            li
+              a(href='https://www.eventbrite.com/l/event-promotion/') Event Promotion
+        .col-md-3.col-sm-12
+          ul
+            li
+              h3 Find Events
+            li
+              a(href='https://www.eventbrite.com/d/ma--boston/events/') Boston Events
+            li
+              a(href='https://www.eventbrite.com/d/il--chicago/events/') Chicago Events
+            li
+              a(href='https://www.eventbrite.com/d/co--denver/events/') Denver Events
+            li
+              a(href='https://www.eventbrite.com/d/tx--houston/events/') Houston Events
+            li
+              a(href='https://www.eventbrite.com/d/ca--los-angeles/events/') Los Angeles Events
+            li
+              a(href='https://www.eventbrite.com/d/tn--nashville/events/') Nashville Events
+            li
+              a(href='https://www.eventbrite.com/d/ny--new-york/events/') New York Events
+            li
+              a(href='https://www.eventbrite.com/d/ca--san-diego/events/') San Diego Events
+            li
+              a(href='https://www.eventbrite.com/d/ca--san-francisco/events/') San Francisco Events
+            li
+              a(href='https://www.eventbrite.com/sitemap/directory/')  All Cities 
+        .col-md-3.col-sm-12
+          ul
+            li
+              h3 Connect With Us
+            li
+              i.fa.fa-envelope-square(aria-hidden='true')
+              a(href='#') Contact Support
+            li
+              i.fa.fa-envelope-square(aria-hidden='true')
+              a(href='#') Contact Sales
+            li
+              i.fa.fa-twitter-square(aria-hidden='true')
+              a(href='#') Twitter
+            li
+              i.fa.fa-facebook-square(aria-hidden='true')
+              a(href='#') Facebook
+            li
+              i.fa.fa-linkedin-square(aria-hidden='true')
+              a(href='#') LinkedIn
+            li
+              i.fa.fa-instagram(aria-hidden='true')
+              a(href='#') Instagram
+            li
+              i.fa.fa-google-plus(aria-hidden='true')
+              a(href='#') Google+
+      hr      
+      .Country
+      h3 Country
+      .list
+        | Argentina Australia Brasil Canada(EN) Canada(FR) Chile Colombia Deutschland España France Hong Kong Ireland Italia 
+        br
+        |  Mexico Nederland New Zealand Peru Portugal Singapore United Kingdom United States
+      hr
+      .bottom
+        | About  Blog Help  Careers  Press  Security  Developers  Terms  Privacy  Cookies
+        select#select2.custom-select
+          option(selected='') United States
+          option(value='1') Argentina
+          option(value='2') Australia
+          option(value='3') Brasil
+          option(value='4') Canada (EN)
+          option(value='5') Canada (FR)
+          option(value='6') Deutschland
+          option(value='7') Espana
+          option(value='8') France
+          option(value='9') Hong Kong
+          option(value='10') Ireland
+          option(value='11') Italia
+          option(value='12') Nederland
+          option(value='13') New Zealand
+          option(value='14') Portugal
+          option(value='15') Singapore
+          option(value='16') United Kingdom
