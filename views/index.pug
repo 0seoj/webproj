@@ -1,31 +1,6 @@
 extends layout
 
 block content
-  .container-fluid
-    nav.navbar.navbar-toggleable-md.navbar-expand-lg.navbar-light.bg-faded
-      a.navbar-brand.main-title(href='#') Eventbrite
-      ul.navbar-nav.ml-auto
-        li.nav-item
-          a.nav-link(href='#') BROWSE EVENTS
-        li.nav-item.dropdown.content-button
-          a.nav-link.dropdown-toggle(href='#', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') ORGANIZE
-          .dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
-            a.dropdown-item(href='#') Overview
-            a.dropdown-item(href='#') Pricing
-            a.dropdown-item(href='#') Blog
-            a.dropdown-item(href='#') Resources
-        li.nav-item
-          a.nav-link.dropdown-toggle(href='#', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') HELP 
-          .dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
-            a.dropdown-item(href='#') Where are my tickets?
-            a.dropdown-item(href='#') How to contact the event organizer
-            a.dropdown-item(href='#') Help Center
-        li.nav-item
-          a.nav-link(href='/signin') SIGN IN
-        li.nav-item
-          a.nav-link(href='/users/new') SIGN UP
-        li.nav-item
-          a.nav-link(href='/events/new') CREATE EVENT  
     .container-fluid.body
       div
         .row.title
