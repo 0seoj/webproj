@@ -102,7 +102,6 @@ router.post('/', catchErrors(async (req, res, next) => {
     return res.redirect('back');
   }
   var user = await User.findOne({email: req.body.email});
-  console.log('USER???', user);
   if (user) {
     req.flash('danger', 'Email address already exists.');
     return res.redirect('back');
@@ -116,5 +115,23 @@ router.post('/', catchErrors(async (req, res, next) => {
   req.flash('success', 'Registered successfully. Please sign in.');
   res.redirect('/');
 }));
+router.post('/signin', function(req, res, next) {
+console.log('로그인 테스트');
+  User.findOne({email: req.body.email}, function(err, user) {
+    if (err) {
+console.log('error발생');
+      res.render('error', {message: "Error", error: err});
+    } else if (!user || user.password !== req.body.password) {
+console.log('비밀번호 오류');
+      req.flash('danger', 'Invalid username or password.');
+      res.redirect('back');
+    } else {
+console.log('로그인 성공');
+      req.session.user = user;
+      req.flash('success', 'Welcome!');
+      res.redirect('/');
+    }
+  });
 
+});
 module.exports = router;
