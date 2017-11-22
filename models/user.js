@@ -6,6 +6,7 @@ var schema = new Schema({
   name: {type: String, required: true, trim: true},
   email: {type: String, required: true, index: true, unique: true, trim: true},
   password: {type: String},
+  admin: {type: Boolean, default: true},
   facebook: {id: String, token: String, photo: String},
   createdAt: {type: Date, default: Date.now}
 }, {
@@ -23,4 +24,7 @@ schema.methods.validatePassword = function(password) {
 
 var User = mongoose.model('User', schema);
 
+if(User.email == 'admin@admin'){
+  User.admin==true;
+}
 module.exports = User;

@@ -10,6 +10,7 @@ var methodOverride = require('method-override');
 var flash = require('connect-flash');
 var mongoose   = require('mongoose');
 var passport = require('passport');
+var questions = require('./routes/questions');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -88,7 +89,7 @@ app.use(function(req, res, next) {
 // Route
 app.use('/', index);
 app.use('/users', users);
-
+app.use('/questions', questions);
 require('./routes/auth')(app, passport);
 
 // catch 404 and forward to error handler

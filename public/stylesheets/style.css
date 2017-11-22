@@ -2,7 +2,10 @@
   margin-left: 5em; }
 
 .form-signin {
-  width: 30%; }
+  width: 30%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
 
 .btn {
   background-color: orangered; }
@@ -270,7 +273,7 @@ h5 {
   background-color: white; }
 
 hr {
-  width: 70%; }
+  width: 100%; }
 
 .main-title {
   color: #f6682f; }
