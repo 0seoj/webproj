@@ -10,18 +10,14 @@ html
     script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js')
     //script(src='/javascripts/application.js')
+    
   body
     .container-fluid
       nav.navbar.navbar-toggleable-md.navbar-expand-lg.navbar-light.bg-faded
         a.navbar-brand.main-title(href='/') Eventbrite
         ul.navbar-nav.ml-auto
-          li.nav-item.dropdown.content-button
-            a.nav-link.dropdown-toggle(href='#', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') ORGANIZE
-            .dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
-              a.dropdown-item(href='#') Overview
-              a.dropdown-item(href='#') Pricing
-              a.dropdown-item(href='#') Blog
-              a.dropdown-item(href='#') Resources
+          li.nav-item
+            a.nav-link(href='/questions') BROWSE EVENT  
           if (!currentUser) 
             |         
             li.nav-item
@@ -35,7 +31,7 @@ html
               a.nav-link(href='/users') USERS  
             |         
             li.nav-item
-              a.nav-link(href='/signout') Signout
+              a.nav-link(href='/signout') Signout`
           else
             |         
             li.nav-item
@@ -44,7 +40,7 @@ html
             li.nav-item
               a.nav-link(href='/signout') Signout
           li.nav-item
-            a.nav-link(href='/questions') CREATE EVENT  
+            a.nav-link(href='/questions/new') CREATE EVENT  
           
     block hero-unit
     if flashMessages

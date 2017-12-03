@@ -25,7 +25,12 @@ router.get('/', catchErrors(async (req, res, next) => {
   if (term) {
     query = {$or: [
       {title: {'$regex': term, '$options': 'i'}},
-      {content: {'$regex': term, '$options': 'i'}}
+      {location: {'$regex': term, '$options': 'i'}},
+      {starts: {'$regex': term, '$options': 'i'}},
+      {ends: {'$regex': term, '$options': 'i'}},
+      {event_description: {'$regex': term, '$options': 'i'}},
+      {organizer_name: {'$regex': term, '$options': 'i'}},
+      {organizer_description: {'$regex': term, '$options': 'i'}},
     ]};
   }
   const questions = await Question.paginate(query, {
@@ -62,8 +67,12 @@ router.put('/:id', catchErrors(async (req, res, next) => {
     return res.redirect('back');
   }
   question.title = req.body.title;
-  question.content = req.body.content;
-  question.tags = req.body.tags.split(" ").map(e => e.trim());
+  question.location = req.body.location;
+  question.starts = req.body.starts;
+  question.ends = req.body.ends;
+  question.event_description = req.body.event_description;
+  question.organizer_name = req.body.organizer_name;
+  question.organizer_description = req.body.organizer_description;
 
   await question.save();
   req.flash('success', 'Successfully updated');
@@ -81,13 +90,18 @@ router.post('/', needAuth, catchErrors(async (req, res, next) => {
   var question = new Question({
     title: req.body.title,
     author: user._id,
-    content: req.body.content,
-    tags: req.body.tags.split(" ").map(e => e.trim()),
+    location: req.body.location,
+    starts: req.body.starts,
+    ends: req.body.ends,
+    event_description: req.body.event_description,
+    organizer_name: req.body.organizer_name,
+    organizer_description: req.body.organizer_description,
   });
   await question.save();
   req.flash('success', 'Successfully posted');
   res.redirect('/questions');
 }));
+
 
 router.post('/:id/answers', needAuth, catchErrors(async (req, res, next) => {
   const user = req.user;

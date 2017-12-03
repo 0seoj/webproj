@@ -2,9 +2,9 @@ extends ../layout
 
 block content
   .container
-    h1.main-title Create An Event
+    h3.main-title Create An Event
     form(action="/questions", method="POST")
       include _form
-      button.btn.btn-outline-primary(type="submit") SAVE
+      button.btn.btn-outline-primary.save(type="submit") SAVE
 
     

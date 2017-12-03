@@ -1,15 +1,48 @@
 hr.question
 .form-title
-  h3 1Event Details
-.form-group
-  label(for="title") EVENT TITLE
-  input.form-control(type="text", name="title", placeholder="Give it a short distint name", value=question.title)
-.form-group
-  label(for="title") LOCATION
-  input.form-control(type="text", name="title", placeholder="Search for a venue or address", value=question.title)
-.form-group
-  label(for="question") Question
-  textarea.form-control(name="content", rows="5")= question.content
-.form-group
-  label(for="tags") Tags
-  input.form-control(type="text", name="tags", placeholder="tags separated by spaces", value=question.tags ? question.tags.join(" ") : "")
+  h4 <1>Event Details
+  .form-group
+    label(for="title") EVENT TITLE
+    input.form-control(type="text", name="title", placeholder="Give it a short distint name", value=question.title)
+  .form-group
+    label(for="location") LOCATION
+    input.form-control(type="text", name="location", placeholder="Search for a venue or address", value=question.title)
+  .form-group
+    label(for="starts") STARTS
+    input.form-control(type="text", name="starts", placeholder="Give it a short distint name", value=question.title)
+  .form-group
+    label(for="ends") ENDS
+    input.form-control(type="text", name="ends", placeholder="Give it a short distint name", value=question.title)
+  .form-group
+    label(for="event_description") EVENT DESCRIPTION
+    textarea.form-control(name="event_description", rows="5")= question.event_description
+  .form-group
+    label(for="organizer_name") ORGANIZER NAME
+    input.form-control(type="text", name="organizer_name", placeholder="Give it a short distint name", value=question.title)
+  .form-group
+    label(for="organizer_description") ORGANIZER DESCRIPTION
+    input.form-control(type="text", name="organizer_description", placeholder="Give it a short distint name", value=question.title)
+.form-title
+  h4 <2>Create Tickets
+  .form-sub
+    what type of ticket would you like to start with?
+  .form-group
+    label(for="title") FREE
+    input.form-control(type="text", name="organizer_name", placeholder="FREE OR PAID", value=question.title)
+
+  //.form-button.free
+    button.btn.btn-primary.btn-block(type='submit') FREE TICKET
+  //.form-button.paid
+    button.btn.btn-primary.btn-block(type='submit') PAID TICKET
+.form-title
+  h4 <3>Addtional Settings
+  .form-type
+    h5 EVENT Type
+    .form-group
+      label(for="title") Event Type
+      input.form-control(type="text", name="title", placeholder="Give it a short distint name", value=question.title)
+  .form-topic
+    h5 EVENT TOPIC
+    .form-group
+      label(for="title") Event Topic
+      input.form-control(type="text", name="title", placeholder="Give it a short distint name", value=question.title)     

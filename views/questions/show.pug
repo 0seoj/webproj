@@ -5,7 +5,19 @@ block content
     h1.main-title= question.title
 
     .question.show
-      .content= question.content
+  
+      h4 DATE AND TIME
+      starts: .starts=question.starts 
+      ends: .ends=question.ends
+      h4 LOCATION
+      .location=question.location
+      h4 DESCRIPTION
+      .event_description=question.event_description
+      h4 ORGANIZER NAME
+      .organizer_name=question.organizer_name
+      h4 ORGANIZER DESCRIPTION
+      .organizer_description=question.organizer_description
+    
       include _question
 
       .buttons
@@ -18,13 +30,13 @@ block content
       
     if question.numAnswers > 0
       hr
-      h3 #{question.numAnswers} Answer(s)
+      h3 #{question.numAnswers} Register(s)
       .answers.show
         each answer in answers
           include _answer
-
+          
     form(action=`/questions/${question.id}/answers`, method='POST')
       .form-group
-        label(for='answer') Your Answer
+        label(for='answer') Register
         textarea.form-control(name="content", rows="5")
-      button.btn.btn-primary(type="submit") Post Your Answer
+      button.btn.btn-primary(type="submit") REGISTER

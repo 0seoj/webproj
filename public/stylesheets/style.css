@@ -273,7 +273,7 @@ h5 {
   background-color: white; }
 
 hr {
-  width: 100%; }
+  width: 80%; }
 
 .main-title {
   color: #f6682f; }
@@ -352,5 +352,30 @@ hr {
     color: #f6682f; }
   .navbar-light {
     color: #f6682f; } }
+
+.form-button {
+  width: 40%;
+  margin-right: 3em;
+  float: left; }
+
+.form-title {
+  width: 70%;
+  display: block;
+  margin-right: auto;
+  margin-left: auto; }
+
+h3.main-title {
+  display: block;
+  margin-right: auto;
+  margin-left: auto; }
+
+h1.main-title {
+  color: black;
+  margin-bottom: 2em; }
+
+btn.save {
+  display: block;
+  margin-right: auto;
+  margin-left: auto; }
 
 /*# sourceMappingURL=style.css.map */
