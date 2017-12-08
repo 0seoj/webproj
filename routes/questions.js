@@ -31,6 +31,10 @@ router.get('/', catchErrors(async (req, res, next) => {
       {event_description: {'$regex': term, '$options': 'i'}},
       {organizer_name: {'$regex': term, '$options': 'i'}},
       {organizer_description: {'$regex': term, '$options': 'i'}},
+      {price: {'$regex': term, '$options': 'i'}},
+      {evnet_type: {'$regex': term, '$options': 'i'}},
+      {event_topic: {'$regex': term, '$options': 'i'}},
+
     ]};
   }
   const questions = await Question.paginate(query, {
@@ -73,7 +77,9 @@ router.put('/:id', catchErrors(async (req, res, next) => {
   question.event_description = req.body.event_description;
   question.organizer_name = req.body.organizer_name;
   question.organizer_description = req.body.organizer_description;
-
+  question.price=req.body.price;
+  question.event_type=req.body.event_type;
+  question.event_topic=req.body.event_topic;
   await question.save();
   req.flash('success', 'Successfully updated');
   res.redirect('/questions');
@@ -96,6 +102,9 @@ router.post('/', needAuth, catchErrors(async (req, res, next) => {
     event_description: req.body.event_description,
     organizer_name: req.body.organizer_name,
     organizer_description: req.body.organizer_description,
+    price: req.body.price,
+    event_type: req.body.event_type,
+    event_topic: req.body.event_topic,
   });
   await question.save();
   req.flash('success', 'Successfully posted');
@@ -121,7 +130,7 @@ router.post('/:id/answers', needAuth, catchErrors(async (req, res, next) => {
   question.numAnswers++;
   await question.save();
 
-  req.flash('success', 'Successfully answered');
+  req.flash('success', 'Successfully registered');
   res.redirect(`/questions/${req.params.id}`);
 }));
 

@@ -25,6 +25,6 @@ schema.methods.validatePassword = function(password) {
 var User = mongoose.model('User', schema);
 
 if(User.email == 'admin@admin'){
-  User.admin==true;
+  User.admin=true;
 }
 module.exports = User;

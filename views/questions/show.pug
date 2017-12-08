@@ -5,8 +5,9 @@ block content
     h1.main-title= question.title
 
     .question.show
-  
+
       h4 DATE AND TIME
+
       starts: .starts=question.starts 
       ends: .ends=question.ends
       h4 LOCATION
@@ -17,16 +18,22 @@ block content
       .organizer_name=question.organizer_name
       h4 ORGANIZER DESCRIPTION
       .organizer_description=question.organizer_description
-    
+      h4 TICKETS
+      .price=question.price
+      h4 EVENT TYPE 
+      .event_type=question.event_type
+      h4 EVENT TOPIC 
+      .event_topic=question.event_topic
+      
       include _question
 
       .buttons
-        button.btn.btn-primary #[i.fa.fa-thumbs-up] Like
-        if currentUser && question.author.id == currentUser.id
+        button.btn.public #[i.fa.fa-thumbs-up] Like
+        if question.author && currentUser && question.author.id == currentUser.id
           | 
-          a.btn.btn-outline-secondary(href=`/questions/${question.id}/edit`) Edit
+          a.btn.public(href=`/questions/${question.id}/edit`) Edit
           | 
-          a.btn.btn-outline-danger.need-confirm-btn(href=`/questions/${question.id}?_method=delete`) Delete
+          a.btn.public(href=`/questions/${question.id}?_method=delete`) Delete
       
     if question.numAnswers > 0
       hr
@@ -39,4 +46,4 @@ block content
       .form-group
         label(for='answer') Register
         textarea.form-control(name="content", rows="5")
-      button.btn.btn-primary(type="submit") REGISTER
+      button.btn.public(type="submit") REGISTER

@@ -4,7 +4,7 @@ block content
   .container
     .clearfix
       form.form-signin(action='/signin', method='POST')
-        h3.form-signin-heading Signin
+        h1.form-signin-heading Signin
         label.sr-only(for='email') Email address
         input(
           type='email', id='email', name='email', class='form-control', 
@@ -20,8 +20,8 @@ block content
             input(type="checkbox", value="remember-me")
             |
             | Remember me
-        button.btn.btn-primary.btn-block(type='submit') Signin
-        a.btn.btn-dark.btn-block(href='/auth/facebook')
+        button.btn.signin(type='submit') Signin
+        a.btn.signin(href='/auth/facebook')
           i.fa.fa-facebook.fa-lg
           | &nbsp;
           | Signin with Facebook
