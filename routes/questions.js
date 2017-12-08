@@ -28,6 +28,8 @@ router.get('/', catchErrors(async (req, res, next) => {
       {location: {'$regex': term, '$options': 'i'}},
       {starts: {'$regex': term, '$options': 'i'}},
       {ends: {'$regex': term, '$options': 'i'}},
+      {starts_time: {'$regex': term, '$options': 'i'}},
+      {ends_time: {'$regex': term, '$options': 'i'}},
       {event_description: {'$regex': term, '$options': 'i'}},
       {organizer_name: {'$regex': term, '$options': 'i'}},
       {organizer_description: {'$regex': term, '$options': 'i'}},
@@ -74,12 +76,15 @@ router.put('/:id', catchErrors(async (req, res, next) => {
   question.location = req.body.location;
   question.starts = req.body.starts;
   question.ends = req.body.ends;
+  question.starts_time=req.body.starts_time;
+  question.ends_time=req.body.ends_time;
   question.event_description = req.body.event_description;
   question.organizer_name = req.body.organizer_name;
   question.organizer_description = req.body.organizer_description;
   question.price=req.body.price;
   question.event_type=req.body.event_type;
   question.event_topic=req.body.event_topic;
+
   await question.save();
   req.flash('success', 'Successfully updated');
   res.redirect('/questions');
@@ -99,12 +104,15 @@ router.post('/', needAuth, catchErrors(async (req, res, next) => {
     location: req.body.location,
     starts: req.body.starts,
     ends: req.body.ends,
+    starts_time: req.body.starts_time,
+    ends_time: req.body.ends_time,
     event_description: req.body.event_description,
     organizer_name: req.body.organizer_name,
     organizer_description: req.body.organizer_description,
     price: req.body.price,
     event_type: req.body.event_type,
     event_topic: req.body.event_topic,
+
   });
   await question.save();
   req.flash('success', 'Successfully posted');

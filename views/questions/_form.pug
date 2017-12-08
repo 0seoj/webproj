@@ -1,100 +1,98 @@
 hr.question
-.form-title
-  h4 <1>Event Details
-  .form-group
-    label(for="title") EVENT TITLE
-    input.form-control(type="text", name="title", placeholder="Give it a short distint name", value=question.title)
-  .form-group
-    label(for="location") LOCATION
-    input.form-control(type="text", name="location", placeholder="Search for a venue or address", value=question.location)
-  .form-group
-    label(for="starts") STARTS
-    input(type='date', name="starts", value=question.starts)
-  .form-group
-    label(for="ends") ENDS
-    input(type='date', name="ends",value=question.ends)
-  .form-group
-    label(for="event_description") EVENT DESCRIPTION
-    textarea.form-control(name="event_description", rows="5")= question.event_description
-  .form-group
-    label(for="organizer_name") ORGANIZER NAME
-    input.form-control(type="text", name="organizer_name", value=question.organizer_name)
-  .form-group
-    label(for="organizer_description") ORGANIZER DESCRIPTION
-    input.form-control(type="text", name="organizer_description", value=question.organizer_description)
-  
-.form-title
-  h4 <2>Create Tickets
-  .form-sub
-    what type of ticket would you like to start with?
-    .form-group#pay
-      label(for="ticket_price") CREATE TICKET
-      .tab
+
+.form-group
+  label(for="title") EVENT TITLE
+  input.form-control(type="text", name="title", placeholder="Give it a short distint name", value=question.title)
+.form-group
+  label(for="location") LOCATION
+  input.form-control(type="text", name="location", placeholder="Search for a venue or address", value=question.location)
+.form-group
+  label(for="starts") STARTS
+  input(type='date', name="starts", value=question.starts)
+.form-group
+  label(for="starts_time") STARTS TIME
+  input.form-control(type='text', name="starts_time", value=question.starts_time)
+.form-group
+  label(for="ends") ENDS
+  input(type='date', name="ends",value=question.ends)
+.form-group
+  label(for="ends") ENDS TIME
+  input.form-control(type='text', name="ends_time",value=question.ends_time)
+.form-group
+  label(for="event_description") EVENT DESCRIPTION
+  textarea.form-control(name="event_description", rows="5")= question.event_description
+.form-group
+  label(for="organizer_name") ORGANIZER NAME
+  input.form-control(type="text", name="organizer_name", value=question.organizer_name)
+.form-group
+  label(for="organizer_description") ORGANIZER DESCRIPTION
+  input.form-control(type="text", name="organizer_description", value=question.organizer_description)
+
+
+.form-group#pay
+  label(for="ticket_price") CREATE TICKET
+  .tab
+    ul
+      li
+        a.btn.public#FREE
+          
+          i.fa.fa-plus-square-o(aria-hidden="true")
+          |&nbsp;FREE TICKET
+      li
+        a.btn.public#PAID
+          i.fa.fa-plus-square-o(aria-hidden="true")
+          |&nbsp;PAID TICKET 
+    .content
+      .section
         ul
-          li
-            a.btn.public#FREE
-              i.fa.fa-plus-square-o(aria-hidden="true")
-              |&nbsp;FREE TICKET
-          li
-            a.btn.public#PAID
-              i.fa.fa-plus-square-o(aria-hidden="true")
-              |&nbsp;PAID TICKET 
-        .content
-          .section
-            ul
-              input#payinput.form-control(type="text", name="price", value=question.price) 
-.form-title
-  h4 <3>Addtional Settings
-  .form-type
-    h5 EVENT Type
-    .form-group
-      label(for='type') Event Type
-      select.form-control#Event_type(onchange="changeTypeSelect()")
-        option(selected) Select the type of event
-        option Appearance or Singing
-        option Attraction
-        option Camp, Trip, or Retreat
-        option Class, Training, or Workshop
-        option Concert or Performance
-        option Conference
-        option Convention
-        option Dinner or Gala
-        option Festival or Fairs
-        option Game or Competition
-        option Meeting or Networking Event
-        option Other
-        option Party or Social Gathering
-        option Race or Endurance Event
-        option Rally
-        option Screening
-        option Seminar or Talk
-        option Tour
-        option Tournament
-        option Tradeshow, Consumer Show, or Expo
-      input#Event_type.form-control(type="text", name="event_type", value=question.event_type)
-    .form-group
-      label(for='topic') Event Topic
-      select.form-control#Event_topic(onchange="changeTypeSelect()")
-        option Select a topic
-        option Auto, Boat & Air
-        option Business & Professional
-        option Charity & Causes
-        option Community & Culture
-        option Family & Education
-        option Fashion & Beauty
-        option Film, Media & Entertainment
-        option Food & Drink
-        option Government & Politics
-        option Health & Wellness
-        option Hobbies & Special Interest
-        option Home & Lifestyle
-        option Music
-        option Other
-        option Performing & Visual Arts
-        option Religion & Spiritually
-        option School Activities
-        option Science & Technology
-        option Seasonal & Holiday
-        option Sports & Fitness
-        option Travel & Outdoor
-      input#Event_topic.form-control(type="text", name="event_topic", value=question.event_topic)
+          input.form-control#payinput(type="text", name="price", value=question.price) 
+
+.form-group
+  label(for='type') Event Type
+  select.form-control#Event_type(type="text", name="event_type", value=question.event_type) 
+    option(selected) Select the type of event
+    option Appearance or Singing
+    option Attraction
+    option Camp, Trip, or Retreat
+    option Class, Training, or Workshop
+    option Concert or Performance
+    option Conference
+    option Convention
+    option Dinner or Gala
+    option Festival or Fairs
+    option Game or Competition
+    option Meeting or Networking Event
+    option Other
+    option Party or Social Gathering
+    option Race or Endurance Event
+    option Rally
+    option Screening
+    option Seminar or Talk
+    option Tour
+    option Tournament
+    option Tradeshow, Consumer Show, or Expo
+.form-group
+  label(for='topic') Event Topic
+  select.form-control#Event_topic(type="text", name="event_topic", value=question.event_topic)
+    option Select a topic
+    option Auto, Boat & Air
+    option Business & Professional
+    option Charity & Causes
+    option Community & Culture
+    option Family & Education
+    option Fashion & Beauty
+    option Film, Media & Entertainment
+    option Food & Drink
+    option Government & Politics
+    option Health & Wellness
+    option Hobbies & Special Interest
+    option Home & Lifestyle
+    option Music
+    option Other
+    option Performing & Visual Arts
+    option Religion & Spiritually
+    option School Activities
+    option Science & Technology
+    option Seasonal & Holiday
+    option Sports & Fitness
+    option Travel & Outdoor
