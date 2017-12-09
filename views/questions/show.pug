@@ -3,8 +3,16 @@ extends ../layout
 block content
   .container
     h1.main-title= question.title
+    
+    include _question
+    if event.author && currentUser && event.author.id == currentUser.id
+     .user-btn
+       | 
+       a.btn.btn-outline-secondary(href=`/events/${event.id}/edit`) Edit
+       | 
+       a.btn.btn-outline-danger.need-confirm-btn(href=`/events/${event.id}?_method=delete`) Delete
 
-    .question.show
+.question.show
 
       h4 DATE AND TIME
 
