@@ -32,21 +32,29 @@ block content
 
       .buttons
         button.btn.public #[i.fa.fa-thumbs-up] Like
-        if question.author && currentUser && question.author.id == currentUser.id
-          | 
-          a.btn.public(href=`/questions/${question.id}/edit`) Edit
-          | 
-          a.btn.public(href=`/questions/${question.id}?_method=delete`) Delete
-      
-    if question.numAnswers > 0
-      hr
-      h3 #{question.numAnswers} Register(s)
-      .answers.show
-        each answer in answers
-          include _answer
+        if question.author && currentUser && question.author.id == currentUser.id     
+          if question.numParticipations > 0 
+             h3  
+               |#{question.numParticipations} Participation(s) 
+             .participations.show 
+                 each participation in participations 
+                   include _participation
+        if currentUser
+          .participation.show
+            each participation in participations
+              if currentUser.id==participation.author.id
+                h3
+                  |Participation List 
+                include _participation
           
-    form(action=`/questions/${question.id}/answers`, method='POST')
+    form(action=`/questions/${question.id}/participations`, method='POST')
       .form-group
-        label(for='answer') Register
-        textarea.form-control(name="content", rows="5")
-      button.btn.public(type="submit") REGISTER
+        label(for='name') 이름을 입력해주세요.
+        input.form-control(type='text', name="name")
+        label(for='age') 나이를 입력해 주세요.
+        input.form-control(type='text', name="age")
+        label(for='motive') 참가 동기를 입력해 주세요.
+        input.form-control(type='text', name="motive")
+        label(for='note') 
+        textarea.form-control(name="note", rows="5")
+        button.btn.public(type="submit") PARTICIPATION

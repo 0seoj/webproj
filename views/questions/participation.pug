@@ -1,0 +1,20 @@
+.participation.card
+  .numbers.like-badge
+    .number
+      span.number.num-votes= question.numLikes
+    .button
+      a.like(href='#', data-id=participation.id)
+        i.fa.fa-thumbs-up
+        | 
+        | Like
+
+  .card-body
+    .content= participation.content
+  .row.card-body
+    .col-sm
+    .col-sm.text-right
+      .author
+        | participationed on #{moment(participation.createdAt).format('YYYY-MM-DD')}
+        if participation.author
+          | 
+          | by #[a(href=`/users/${participation.author.id}`)= participation.author.name]

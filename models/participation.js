@@ -5,7 +5,10 @@ const Schema = mongoose.Schema;
 var schema = new Schema({
   author: { type: Schema.Types.ObjectId, ref: 'User' },
   question: { type: Schema.Types.ObjectId, ref: 'Question' },
-  content: {type: String, trim: true, required: true},
+  name: {type: String, trim:true},
+  age: {type: String, trim:true},
+  motive: {type:String, trim:true},
+  note: {type: String, trim: true},
   numLikes: {type: Number, default: 0},
   createdAt: {type: Date, default: Date.now}
 }, {
@@ -13,6 +16,6 @@ var schema = new Schema({
   toObject: {virtuals: true}
 });
 schema.plugin(mongoosePaginate);
-var Answer = mongoose.model('Answer', schema);
+var Participation = mongoose.model('Participation', schema);
 
-module.exports = Answer;
+module.exports = Participation;

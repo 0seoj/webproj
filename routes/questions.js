@@ -1,6 +1,6 @@
 const express = require('express');
 const Question = require('../models/question');
-const Answer = require('../models/answer');
+const Participation = require('../models/participation');
 const catchErrors = require('../lib/async-error');
 
 const router = express.Router();
@@ -58,11 +58,11 @@ router.get('/:id/edit', needAuth, catchErrors(async (req, res, next) => {
 
 router.get('/:id', catchErrors(async (req, res, next) => {
   const question = await Question.findById(req.params.id).populate('author');
-  const answers = await Answer.find({question: question.id}).populate('author');
+  const participations = await Participation.find({question: question.id}).populate('author');
   question.numReads++;    // TODO: 동일한 사람이 본 경우에 Read가 증가하지 않도록???
 
   await question.save();
-  res.render('questions/show', {question: question, answers: answers});
+  res.render('questions/show', {question: question, participations: participations});
 }));
 
 router.put('/:id', catchErrors(async (req, res, next) => {
@@ -117,10 +117,11 @@ router.post('/', needAuth, catchErrors(async (req, res, next) => {
   await question.save();
   req.flash('success', 'Successfully posted');
   res.redirect('/questions');
+  res.redirect(`/questions/${req.params.id}`);
 }));
 
 
-router.post('/:id/answers', needAuth, catchErrors(async (req, res, next) => {
+router.post('/:id/participations', needAuth, catchErrors(async (req, res, next) => {
   const user = req.user;
   const question = await Question.findById(req.params.id);
 
@@ -129,13 +130,16 @@ router.post('/:id/answers', needAuth, catchErrors(async (req, res, next) => {
     return res.redirect('back');
   }
 
-  var answer = new Answer({
+  var participation = new Participation({
     author: user._id,
     question: question._id,
-    content: req.body.content
+    note: req.body.note,
+    age: req.body.age,
+    name: req.body.name,
+    motive: req.body.motive,
   });
-  await answer.save();
-  question.numAnswers++;
+  await participation.save();
+  question.numParticipations++;
   await question.save();
 
   req.flash('success', 'Successfully registered');
