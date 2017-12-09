@@ -33,12 +33,11 @@ block content
       .buttons
         button.btn.public #[i.fa.fa-thumbs-up] Like
         if question.author && currentUser && question.author.id == currentUser.id     
-          if question.numParticipations > 0 
-             h3  
-               |#{question.numParticipations} Participation(s) 
-             .participations.show 
-                each participation in participations 
-                  include _participation
+           h3  
+             |#{question.numParticipations} Participation(s) 
+           .participations.show 
+              each participation in participations 
+                include _participation
                   
         if currentUser
           .participation.show

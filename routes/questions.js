@@ -117,9 +117,7 @@ router.post('/', needAuth, catchErrors(async (req, res, next) => {
   await question.save();
   req.flash('success', 'Successfully posted');
   res.redirect('/questions');
-  res.redirect(`/questions/${req.params.id}`);
 }));
-
 
 router.post('/:id/participations', needAuth, catchErrors(async (req, res, next) => {
   const user = req.user;
@@ -136,7 +134,7 @@ router.post('/:id/participations', needAuth, catchErrors(async (req, res, next) 
     note: req.body.note,
     age: req.body.age,
     name: req.body.name,
-    motive: req.body.motive,
+    motive: req.body.motive
   });
   await participation.save();
   question.numParticipations++;
