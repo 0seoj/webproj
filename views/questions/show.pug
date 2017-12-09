@@ -5,12 +5,12 @@ block content
     h1.main-title= question.title
     
     include _question
-    if event.author && currentUser && event.author.id == currentUser.id
+    if question.author && currentUser && question.author.id == currentUser.id
      .user-btn
        | 
-       a.btn.btn-outline-secondary(href=`/events/${event.id}/edit`) Edit
+       a.btn.btn-outline-secondary(href=`/questions/${event.id}/edit`) Edit
        | 
-       a.btn.btn-outline-danger.need-confirm-btn(href=`/events/${event.id}?_method=delete`) Delete
+       a.btn.btn-outline-danger.need-confirm-btn(href=`/questions/${event.id}?_method=delete`) Delete
 
     h4 DATE AND TIME
 
