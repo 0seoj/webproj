@@ -40,13 +40,13 @@ block content
             each participation in participations 
               include _participation
                 
-      //  if currentUser
-          .participation.show
-            each participation in participations
-              if currentUser.id==participation.author.id
-                h3
-                  |Participation List 
-                include _participation
+      if currentUser && currentUser.id != question.author.id
+        .participation.show
+          each participation in participations
+            if currentUser.id==participation.author.id
+              h3
+                |Participation List 
+              include _participation
                   
       form(action=`/questions/${question.id}/participations`, method='POST')
         .form-group
