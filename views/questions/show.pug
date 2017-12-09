@@ -12,58 +12,56 @@ block content
        | 
        a.btn.btn-outline-danger.need-confirm-btn(href=`/events/${event.id}?_method=delete`) Delete
 
-    .question.show
+    h4 DATE AND TIME
 
-      h4 DATE AND TIME
+    starts: .starts=question.starts 
+    starts_time: .starts_time=question.starts_time
+    ends: .ends=question.ends
+    ends_time: .ends_time=question.ends_time
+    
+    h4 LOCATION
+    .location=question.location
+    h4 DESCRIPTION
+    .event_description=question.event_description
+    h4 ORGANIZER NAME
+    .organizer_name=question.organizer_name
+    h4 ORGANIZER DESCRIPTION
+    .organizer_description=question.organizer_description
+    h4 TICKETS
+    .price=question.price
+    h4 EVENT TYPE 
+    .event_type=question.event_type
+    h4 EVENT TOPIC 
+    .event_topic=question.event_topic
+    
+    include _question
 
-      starts: .starts=question.starts 
-      starts_time: .starts_time=question.starts_time
-      ends: .ends=question.ends
-      ends_time: .ends_time=question.ends_time
+    .buttons
+      button.btn.public #[i.fa.fa-thumbs-up] Like
       
-      h4 LOCATION
-      .location=question.location
-      h4 DESCRIPTION
-      .event_description=question.event_description
-      h4 ORGANIZER NAME
-      .organizer_name=question.organizer_name
-      h4 ORGANIZER DESCRIPTION
-      .organizer_description=question.organizer_description
-      h4 TICKETS
-      .price=question.price
-      h4 EVENT TYPE 
-      .event_type=question.event_type
-      h4 EVENT TOPIC 
-      .event_topic=question.event_topic
-      
-      include _question
-
-      .buttons
-        button.btn.public #[i.fa.fa-thumbs-up] Like
-        
-      if question.author && currentUser && question.author.id == currentUser.id     
-         h3  
-           |#{question.numParticipations} Participation(s) 
-         .participations.show 
-            each participation in participations 
-              include _participation
+    if question.author && currentUser && question.author.id == currentUser.id     
+       h3  
+         |#{question.numParticipations} Participation(s) 
+       .participations.show 
+          each participation in participations 
+            include _participation
+              
+    if currentUser && currentUser.id != question.author.id
+      .participation.show
+        each participation in participations
+          if currentUser.id==participation.author.id
+            h3
+              |Participation List 
+            include _participation
                 
-      if currentUser && currentUser.id != question.author.id
-        .participation.show
-          each participation in participations
-            if currentUser.id==participation.author.id
-              h3
-                |Participation List 
-              include _participation
-                  
-      form(action=`/questions/${question.id}/participations`, method='POST')
-        .form-group
-          label(for='name') 이름을 입력해주세요.
-          input.form-control(type='text', name="name")
-          label(for='age') 나이를 입력해 주세요.
-          input.form-control(type='text', name="age")
-          label(for='motive') 참가 동기를 입력해 주세요.
-          input.form-control(type='text', name="motive")
-          label(for='note') NOTE
-          textarea.form-control(name="note", rows="5")
-          button.btn.public(type="submit") PARTICIPATION
+    form(action=`/questions/${question.id}/participations`, method='POST')
+      .form-group
+        label(for='name') 이름을 입력해주세요.
+        input.form-control(type='text', name="name")
+        label(for='age') 나이를 입력해 주세요.
+        input.form-control(type='text', name="age")
+        label(for='motive') 참가 동기를 입력해 주세요.
+        input.form-control(type='text', name="motive")
+        label(for='note') NOTE
+        textarea.form-control(name="note", rows="5")
+        button.btn.public(type="submit") PARTICIPATION
