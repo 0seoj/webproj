@@ -45,11 +45,23 @@ h1.main-title{
   margin-bottom: 2em;
 }
 
-#pay {
-  .tab{
-    margin: 0 auto;
-    text-align: center;
-  }
+.event-new {
+   h1 {
+     color: $primary-color;
+     margin-top: 70px;
+   }
+
+
+   .event-input-group {
+     margin-top: 70px;
+     margin-bottom: 100px;
+   }
+
+  #pay {
+    .tab{
+      margin: 0 auto;
+      text-align: center;
+    }
 
   .tab >ul{
     list-style: none;

@@ -17,7 +17,7 @@ var schema = new Schema({
   event_type: {type: String, trim:true},
   event_topic: {type:String, trim:true},
   numLikes: {type: Number, default: 0},
-  numAnswers: {type: Number, default: 0},
+  numParticipations: {type: Number, default: 0},
   numReads: {type: Number, default: 0},
   createdAt: {type: Date, default: Date.now},
 }, {
