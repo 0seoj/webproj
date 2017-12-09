@@ -32,20 +32,22 @@ block content
 
       .buttons
         button.btn.public #[i.fa.fa-thumbs-up] Like
-        if question.author && currentUser && question.author.id == currentUser.id     
+        
+      if question.author && currentUser && question.author.id == currentUser.id     
+         if event.numParticipations > 0
            h3  
              |#{question.numParticipations} Participation(s) 
            .participations.show 
               each participation in participations 
                 include _participation
                   
-        if currentUser
-          .participation.show
-            each participation in participations
-              if currentUser.id==participation.author.id
-                h3
-                  |Participation List 
-                include _participation
+      if currentUser
+        .participation.show
+          each participation in participations
+            if currentUser.id==participation.author.id
+              h3
+                |Participation List 
+              include _participation
                   
       form(action=`/questions/${question.id}/participations`, method='POST')
         .form-group
