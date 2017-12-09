@@ -46,59 +46,59 @@ h1.main-title{
 }
 
 .event-new {
-   h1 {
-     color: $primary-color;
-     margin-top: 70px;
-   }
-
-
-   .event-input-group {
-     margin-top: 70px;
-     margin-bottom: 100px;
-   }
-
-  #pay {
+  h1 {
+    color: $primary-color;
+    margin-top: 70px;
+ }
+ .event-input-group {
+   margin-top: 70px;
+   margin-bottom: 100px;
+ }
+ #pay {
     .tab{
       margin: 0 auto;
       text-align: center;
     }
+    .tab:after, .tab>ul:after, .tab>ul>li:after{
+      content: "";
+      clear: both;
+    }
 
-  .tab >ul{
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  #FREE, #PAID {
-    transition: all 0.2s ease .1s;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 30%;
-    color: white;
-  }
+    .tab >ul{
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
 
-  .tab:after, .tab>ul:after, .tab>ul>li:after{
-    content: "";
-    clear: both;
-  }
-
-  .tab > .content >div{
-    display:none;
-  }
-  .tab > .content > div.selected {
-    display: block;
-  }
-  #FREE{
-    margin-right: 1em;
-    float: left;
-  }
-  #FREE:hover, #PAID:hover,
-  #FREE.active, #PAID.active{
-    border-color: Black;
-    background-color: white;
-    color: black;
-  }
-  .section input {
-    width: 90%;
-  }
+    .tab > ul > li{
+      display: inline-block;
+      margin: 0 auto;
+    }
+    .tab > .content >div{
+      display:none;
+    }
+    .tab > .content > div.selected {
+      display: block;
+    }
+    #FREE, #PAID {
+      transition: all 0.2s ease .1s;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 30%;
+      color: white;
+    }
+    #FREE{
+      margin-right: 1em;
+      float: left;
+    }
+    #FREE:hover, #PAID:hover,
+    #FREE.active, #PAID.active{
+      border-color: Black;
+      background-color: white;
+      color: black;
+    }
+    .section input {
+      width: 90%;
+    }
 }
