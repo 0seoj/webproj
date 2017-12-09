@@ -27,33 +27,24 @@ hr.question
 .form-group
   label(for="organizer_description") ORGANIZER DESCRIPTION
   input.form-control(type="text", name="organizer_description", value=question.organizer_description)
+    
 
-
-//.form-group#pay
+.form-group
   label(for="ticket_price") CREATE TICKET
-  .container
-  .row
-    h2 Multiple Select with Search Option - Tiled Layout 
-    .form-group
-      .col-sm-12.col-md-12.col-lg-12
-        input.form-control(type='search', placeholder='Add your options..')
-.row
-  .form-group
-    label(for="ticket_price") CREATE TICKET
-  .tab
-    ul
-      li
-        a.btn.public#FREE
-          i.fa.fa-plus-square-o(aria-hidden="true")
-          |&nbsp;FREE TICKET
-      li
-        a.btn.public#PAID
-          i.fa.fa-plus-square-o(aria-hidden="true")
-          |&nbsp;PAID TICKET 
-    .content
-      .section
-        ul
-          input#payinput.form-control(type="text", name="price", value=question.price) 
+.tab
+  ul
+    li
+      a.btn.public#FREE
+        i.fa.fa-plus-square-o(aria-hidden="true")
+        |&nbsp;FREE TICKET
+    li
+      a.btn.public#PAID
+        i.fa.fa-plus-square-o(aria-hidden="true")
+        |&nbsp;PAID TICKET 
+  .content
+    .section
+      ul
+        input#payinput.form-control(type="text", name="price", value=question.price) 
 
 .form-group
   label(for='type') Event Type
