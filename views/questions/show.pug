@@ -32,14 +32,17 @@ block content
 
       .buttons
         button.btn.public #[i.fa.fa-thumbs-up] Like
-        if question.author && currentUser && question.author.id == currentUser.id     
-          if question.numParticipations > 0 
-             h3  
-               |#{question.numParticipations} Participation(s) 
-             .participations.show 
-                 each participation in participations 
-                   include _participation
-        if currentUser
+        if question.author && question.author.id == currentUser.id     
+          
+      if question.numParticipations > 0 
+         h3  
+           |#{question.numParticipations} Participation(s) 
+         .participations.show 
+            if question.author && question.author.id ==currentUser.id
+              each participation in participations 
+                include _participation
+      
+        //if currentUser
           .participation.show
             each participation in participations
               if currentUser.id==participation.author.id
@@ -55,6 +58,6 @@ block content
         input.form-control(type='text', name="age")
         label(for='motive') 참가 동기를 입력해 주세요.
         input.form-control(type='text', name="motive")
-        label(for='note') 
+        label(for='note') NOTE
         textarea.form-control(name="note", rows="5")
         button.btn.public(type="submit") PARTICIPATION

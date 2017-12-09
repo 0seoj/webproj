@@ -8,9 +8,33 @@
         | 
         | Like
 
-  .card-body
+  //.card-body
     .content= participation.content
-  .row.card-body
+  .card-body 
+     .row  
+       .col-4.title 이름 
+       .col-8.content 
+         if participation.author 
+           | #[a(href=`/users/${participation.author.id}`)= participation.author.name] 
+  .card-body 
+    .row  
+      .col-4.title 나이 
+      .col-8.content 
+        if participation.author 
+          | #[a(href=`/users/${participation.author.id}`)= participation.author.age]         
+  .card-body 
+     .row  
+       .col-4.title 동기 
+       .col-8.content 
+         if participation.author 
+           | #[a(href=`/users/${participation.author.id}`)= participation.author.motive]
+  .card-body 
+    .row  
+      .col-4.title note
+      .col-8.content 
+        if participation.author 
+          | #[a(href=`/users/${participation.author.id}`)= participation.author.note]
+//  .row.card-body
     .col-sm
     .col-sm.text-right
       .author
